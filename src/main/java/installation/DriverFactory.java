@@ -1,4 +1,4 @@
-package org.example;
+package installation;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,17 +8,18 @@ public class DriverFactory {
     static WebDriver createDriver(WEBDRIVERS webdrivers){
         WebDriver driver = null;
         switch (webdrivers){
-            case CHROMECLEAN -> createCleanChrome();
+            case CHROMECLEAN -> driver= createCleanChrome();
         }
         return driver;
     }
 
-    static final String BROWSER_DRIVER_PATH = "target/Webdriver/chromedriver_mac64/chromedriver_3/";
+    static final String BROWSER_DRIVER_PATH = "target/Webdriver/chromedriver";
 
     private static WebDriver createCleanChrome() {
         System.setProperty("webdriver.chrome.driver", BROWSER_DRIVER_PATH);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--incognito");
 
         return new ChromeDriver(options);
     }

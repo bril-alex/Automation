@@ -1,4 +1,4 @@
-package org.example;
+package installation;
 
 public enum WEBDRIVERS {
     CHROMECLEAN;
