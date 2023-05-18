@@ -53,6 +53,8 @@ public class FrontEndList extends BaseClass {
             String coachName = element.getText();
             System.out.println(coachName);
         }
+        Thread.sleep(3000);
+        driver.quit();
     }
 
 }

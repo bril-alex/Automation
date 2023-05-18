@@ -20,6 +20,7 @@ public class DriverFactory {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--incognito");
+        options.addArguments("--start-maximized");
 
         return new ChromeDriver(options);
     }
