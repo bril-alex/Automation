@@ -40,6 +40,7 @@ public class FrontEndList extends BaseClass {
         for (WebElement element : elements) {
             String coachName = element.getText();
             System.out.println(coachName);
+
         }
     }
 }
