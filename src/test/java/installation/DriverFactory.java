@@ -24,5 +24,4 @@ public class DriverFactory {
 
         return new ChromeDriver(options);
     }
-
 }
