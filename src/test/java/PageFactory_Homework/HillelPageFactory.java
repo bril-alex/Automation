@@ -1,19 +1,14 @@
 package PageFactory_Homework;
 
-import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 import static installation.BaseClass.driver;
 
@@ -43,21 +38,35 @@ public class HillelPageFactory {
         wait.until(ExpectedConditions.visibilityOf(chooseFront));
         chooseFront.click();
     }
-    public void courseInformation(){
+    public WebElement getCourseTitle(){
         wait.until(ExpectedConditions.visibilityOf(courseTitle));
-        System.out.println(courseTitle.getText());
-        System.out.println(courseRate.getText());
+        return courseTitle;
+    }
+    public WebElement getCourseRate(){
+        return courseRate;
+    }
+    public WebElement getCourseDescription(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//div[@class= 'programme']")));
         wait.until(ExpectedConditions.visibilityOf(courseDescription));
-        System.out.println("Course Descriptions: \n" + courseDescription.getText());
+        System.out.println("Course Descriptions: \n");
+        return courseDescription;
+    }
+    public int getCoachCount(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.id("lazySectionCoaches")));
         wait.until(ExpectedConditions.elementToBeClickable(allCoachesButton));
         allCoachesButton.click();
         System.out.println("Count of coaches: " + coachList.size());
+        return coachList.size();
+    }
+
+    public List<String>getListCoachesNames(){
+        List<String>coaches = new ArrayList<>();
         for (WebElement element : coachList) {
             String coachName = element.getText();
             System.out.println(coachName);
         }
+        return coaches;
     }
 }

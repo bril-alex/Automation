@@ -3,10 +3,7 @@ package PageFactory_Homework;
 import installation.BaseClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-import PageFactory_Homework.HillelPageFactory;
 import static junit.framework.Assert.assertEquals;
 
 public class PageTest extends BaseClass {
@@ -25,6 +22,10 @@ public class PageTest extends BaseClass {
     public void courseInformation(){
         hillelPageFactory.openCoursePage();
         assertEquals("https://ithillel.ua/courses/front-end-basic", driver.getCurrentUrl());
-        hillelPageFactory.courseInformation();
+        hillelPageFactory.getCourseTitle();
+        hillelPageFactory.getCourseRate();
+        hillelPageFactory.getCourseDescription();
+        hillelPageFactory.getCoachCount();
+        hillelPageFactory.getListCoachesNames();
     }
 }
